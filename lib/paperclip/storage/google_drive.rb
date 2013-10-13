@@ -143,7 +143,7 @@ module Paperclip
         end
       end # full title
 
-      def public_url_for title
+      def public_url_for(title)
         searched_id = search_for_title(title) #return id if any or style
         if searched_id.nil? # it finds some file
           default_image
@@ -154,6 +154,7 @@ module Paperclip
       end # url
       # take title, search in given folder and if it finds a file, return id of a file or nil
       def search_for_title(title)
+        puts title
         parameters = {
                 'folderId' => find_public_folder,
                 'q' => "title contains '#{title}'", # full_title
